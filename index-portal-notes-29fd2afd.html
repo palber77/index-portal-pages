@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 信息卡片 · 用途指引</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f9f6f0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      color: #2e2b27;
+      line-height: 1.65;
+      padding: 2rem 1.2rem;
+    }
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fffcf7;
+      border-radius: 40px 40px 28px 28px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+      padding: 2.8rem 2rem 3rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #2f2a24;
+      border-left: 5px solid #b8a18a;
+      padding-left: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .subhead {
+      color: #6b5f54;
+      margin-bottom: 2.2rem;
+      padding-left: 1.8rem;
+      font-size: 1rem;
+      border-bottom: 1px solid #e6ddd0;
+      padding-bottom: 0.8rem;
+    }
+    .hero-card {
+      background: #f2ede5;
+      border-radius: 28px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.2rem 2rem;
+    }
+    .hero-visual {
+      flex: 0 0 60px;
+      height: 60px;
+      background: #cfbca7;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3f352d;
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+    .hero-text {
+      flex: 1;
+      min-width: 200px;
+    }
+    .hero-text p {
+      margin-bottom: 0.4rem;
+    }
+    .hero-text strong {
+      color: #4f3f33;
+    }
+    .badge {
+      display: inline-block;
+      background: #dacfc1;
+      color: #2f2a24;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      margin-top: 0.2rem;
+    }
+    section {
+      margin-bottom: 2.8rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #3d352e;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 22px;
+      background: #b8a18a;
+      border-radius: 4px;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+    }
+    .card {
+      background: #faf6f0;
+      border: 1px solid #ede5da;
+      border-radius: 24px;
+      padding: 1.3rem 1.2rem;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+    .card-title {
+      font-weight: 550;
+      font-size: 1.05rem;
+      color: #3f352d;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card p {
+      font-size: 0.92rem;
+      color: #4f473e;
+    }
+    .audience-box {
+      background: #faf6f0;
+      border-radius: 24px;
+      padding: 1.6rem 1.8rem;
+      border-left: 4px solid #b8a18a;
+      margin: 1.8rem 0;
+    }
+    .audience-box ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.2rem;
+      margin-top: 0.6rem;
+    }
+    .audience-box li {
+      background: #ede5da;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #3a322b;
+    }
+    .link-paragraph {
+      background: #f2ede5;
+      border-radius: 28px;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0 1rem;
+      font-size: 1rem;
+    }
+    .link-paragraph a {
+      color: #4f3a2b;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #b8a18a;
+      font-weight: 500;
+    }
+    .link-paragraph a:hover {
+      color: #2f241c;
+      text-decoration-color: #7d6b5a;
+    }
+    .quote-note {
+      background: transparent;
+      border: 1px solid #dacfc1;
+      border-radius: 20px;
+      padding: 1.2rem 1.6rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #4f473e;
+      position: relative;
+    }
+    .quote-note::before {
+      content: '💡';
+      margin-right: 6px;
+      font-size: 1rem;
+    }
+    .faq-mini {
+      margin-top: 2.5rem;
+      border-top: 1px solid #e6ddd0;
+      padding-top: 1.8rem;
+    }
+    .faq-mini details {
+      margin-bottom: 0.8rem;
+      background: #fcf9f5;
+      border-radius: 18px;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid #f0e8dd;
+    }
+    .faq-mini summary {
+      font-weight: 500;
+      cursor: pointer;
+      color: #3d352e;
+      padding: 0.2rem 0;
+    }
+    .faq-mini summary::marker {
+      color: #b8a18a;
+    }
+    .faq-mini p {
+      font-size: 0.9rem;
+      color: #4f473e;
+      padding: 0.5rem 0 0.2rem;
+    }
+    .footer-note {
+      margin-top: 2rem;
+      text-align: center;
+      color: #7f7166;
+      font-size: 0.8rem;
+      border-top: 1px solid #ede5da;
+      padding-top: 1.6rem;
+    }
+    @media (max-width: 480px) {
+      .page { padding: 1.8rem 1rem; }
+      h1 { font-size: 1.7rem; padding-left: 0.8rem; }
+      .hero-card { padding: 1.2rem; }
+      .link-paragraph { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <h1>爱游戏 · 信息卡片</h1>
+  <div class="subhead">快速识别网站用途 · 从导航到内容分发的实用工具</div>
+
+  <!-- 主视觉卡片 -->
+  <div class="hero-card">
+    <div class="hero-visual">🎮</div>
+    <div class="hero-text">
+      <p><strong>第一眼就该知道它做什么</strong></p>
+      <p>许多用户第一次遇到 <a href="https://index-portal-i-game.com.cn" style="color:#4f3a2b;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#b8a18a;">爱游戏</a> 时，最关心的是：这个页面能帮我解决什么问题？它不只是一个入口，更像一张索引地图，把游戏资讯、分类导航和常用链接整理在一起。</p>
+      <span class="badge">用途识别 · 信息聚合</span>
+    </div>
+  </div>
+
+  <!-- 用途卡片（信息卡片式） -->
+  <section>
+    <h2>主要用途</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title">📋 分类索引</div>
+        <p>将游戏内容按类型、平台、热度等维度整理，方便快速定位感兴趣的方向，减少反复搜索的时间。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">🧭 导航中枢</div>
+        <p>集中放置常用链接，无论是社区、攻略还是官方站点，都在同一张卡片体系下呈现。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">📦 信息聚合</div>
+        <p>把分散的资讯、更新日志、活动预告整合到统一视图，适合需要快速浏览全局的用户。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">🔗 轻量入口</div>
+        <p>不需要记住多个网址，通过一个中心页面即可跳转到目标内容，降低记忆负担。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 适合人群（引用块风格） -->
+  <div class="audience-box">
+    <h2 style="margin-bottom:0.6rem;">适合人群</h2>
+    <p style="color:#4f473e;font-size:0.95rem;">如果你属于以下任一类型，这个页面的设计思路很可能对你有帮助：</p>
+    <ul>
+      <li>游戏玩家</li>
+      <li>内容整理者</li>
+      <li>轻度研究者</li>
+      <li>多平台使用者</li>
+      <li>导航依赖型用户</li>
+    </ul>
+    <p style="margin-top:0.8rem;font-size:0.88rem;color:#5f554b;">它的结构围绕“快速识别”展开，而不是堆积大量无关信息。每个卡片都对应一个具体用途，减少认知负荷。</p>
+  </div>
+
+  <!-- 自然链接段落（无点击/进入等词） -->
+  <div class="link-paragraph">
+    <p style="margin-bottom:0.6rem;">当你想了解某个游戏的最新动态，或者想找一个干净的导航起点，<a href="https://index-portal-i-game.com.cn">爱游戏</a> 提供了一个经过整理的卡片式视图。它不试图取代任何社区，而是作为信息的前置过滤层——把最常用的条目放在表面。</p>
+    <p style="font-size:0.92rem;color:#5f554b;">这种设计在信息过载的当下尤其实用：你不需要打开多个标签页，就能对整体结构有一个基本判断。对于习惯“先看概览再深入”的用户来说，这是很自然的浏览节奏。</p>
+  </div>
+
+  <!-- 提示框（引用块） -->
+  <div class="quote-note">
+    如果你打算长期使用某个导航页，不妨花一分钟熟悉它的卡片分类逻辑。很多工具类页面的价值都在于“组织方式”而非“内容数量”——<strong>爱游戏</strong> 的卡片式布局正是基于这个理念。
+  </div>
+
+  <!-- FAQ 摘要（保持差异，不重复章节名） -->
+  <div class="faq-mini">
+    <details>
+      <summary>这个页面和普通游戏门户有什么不同？</summary>
+      <p>它更侧重“索引”和“导航”，而不是内容生产。卡片式信息结构让用户能在几秒内判断自己是否需要进一步点击，减少无关信息的干扰。</p>
+    </details>
+    <details>
+      <summary>卡片分类是固定的吗？</summary>
+      <p>分类会根据内容领域动态调整，但都会保持“一卡一用途”的原则，便于用户建立心理模型。具体分类可在页面中直接查看。</p>
+    </details>
+    <details>
+      <summary>移动端浏览体验如何？</summary>
+      <p>卡片采用自适应网格，在手机屏幕上会自动堆叠，保持可读性和触摸友好。整体排版以清晰为首要目标。</p>
+    </details>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    <span>信息卡片式介绍 · 基于用途识别方向</span>
+  </div>
+</div>
+</body>
+</html>
